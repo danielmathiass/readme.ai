@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ececec;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    width: 100%;
+    background-color: #202123;
+    padding: 1rem 2rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #40414f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #10a37f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.avatar:hover {
+    background-color: #0d9370;
+}
+
+.main-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: start; 
+}
+
+.main-header nav a {
+    color: #ececec;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    align-self: center;
+    transition: color 0.2s;
+}
+
+.main-header nav h1 a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.main-header nav h1 a:hover {
+    cursor: pointer;
+}
+
+.main-header nav h1 a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 1.5rem; 
+    font-weight: 700;
+}
+
+.title-by {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #8e8ea0;
+}
+
+.title-author {
+    font-size: 1.1rem; 
+    font-weight: 600;
+    color: #ececec;
+}
+
+.main-header nav a:hover {
+    color: #10a37f;
+}
+
+.chat-container {
+    flex: 1;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    position: relative; 
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative; 
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 20px 150px 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center; 
+    width: 100%;
+}
+
+.message {
+    display: flex;
+    gap: 12px;
+    animation: fadeIn 0.3s ease-in;
+    width: 100%;
+    max-width: 900px;
+    align-items: flex-start; 
+}
+
+.message.user {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #10a37f;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message.user .message-content {
+    background-color: #10a37f;
+    color: #ffffff;
+    border-radius: 12px 4px 12px 12px;
+}
+
+.message.assistant .message-content {
+    background-color: #40414f;
+    color: #ececec;
+    border-radius: 4px 12px 12px 12px;
+}
+
+.prompt-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0 20px 20px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.prompt-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #1e1f20;
+    border-radius: 32px;
+    padding: 12px 20px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.input-area {
+    width: 100%;
+}
+
+.input-area input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #ececec;
+    font-size: 16px;
+    outline: none;
+    padding: 8px 0;
+}
+
+.input-area input::placeholder {
+    color: #8e8ea0;
+}
+
+.input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-controls, .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #2b2c2e;
+    color: #e3e3e3;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: #3e3f41;
+}
+
+.pill-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: #2b2c2e;
+    color: #e3e3e3;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pill-btn:hover {
+    background-color: #3e3f41;
+}
+
+.status-thinking {
+    font-size: 14px;
+    color: #c4c7c5;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.status-thinking .arrow {
+    font-size: 10px;
+}
+
+.send-btn {
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    color: #e3e3e3;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-btn:hover {
+    color: #ffffff;
+}
+
+/* Scrollbar styling */
+.messages-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background-color: #565869;
+    border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background-color: #6f6f86;
+}
+
+.input-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 30%, #0d0d0d 100%);
+    z-index: -1;
+    pointer-events: none;
+}
